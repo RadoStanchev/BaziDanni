@@ -1,5 +1,0 @@
-CREATE TABLE den_sedmica(
-    N_den INTEGER PRIMARY KEY,
-    Den VARCHAR2(20) NOT NULL,
-    Cvyat VARCHAR2(20)
-);

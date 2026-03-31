@@ -13,7 +13,7 @@ namespace BaziDanni_k.p_;
 public partial class Form1 : Form
 {
     public const string ConnectionString =
-        "User Id=YOUR_USER;Password=YOUR_PASSWORD;Data Source=localhost:1521/XEPDB1;";
+    "User Id=SYSTEM;Password=123456;Data Source=localhost:1521/XE;";
 
     public Form1()
     {

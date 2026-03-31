@@ -14,7 +14,7 @@ public static class DatabaseInitializer
             return;
         }
 
-        var scriptPath = Path.Combine(AppContext.BaseDirectory, "Sql", "schema_all.sql");
+        var scriptPath = Path.Combine(Directory.GetCurrentDirectory(), "Sql", "schema_all.sql");
         if (!File.Exists(scriptPath))
         {
             throw new FileNotFoundException("Не е намерен SQL файлът за инициализация.", scriptPath);

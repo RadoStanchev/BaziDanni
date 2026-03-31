@@ -1,5 +1,0 @@
-CREATE TABLE nivo(
-    N_nivo INTEGER PRIMARY KEY,
-    Ime_nivo VARCHAR2(30) NOT NULL,
-    Cvyat VARCHAR2(20)
-);
