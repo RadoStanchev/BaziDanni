@@ -26,7 +26,7 @@ public sealed class AbonamentForm : Form
 
     private void BuildUi()
     {
-        var top = new TableLayoutPanel { Dock = DockStyle.Top, Height = 110, ColumnCount = 6, Padding = new Padding(8) };
+        var top = new TableLayoutPanel { Dock = DockStyle.Top, AutoSize = true, AutoSizeMode = AutoSizeMode.GrowAndShrink, ColumnCount = 6, Padding = new Padding(8) };
         top.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 18));
         top.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 22));
         top.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 22));

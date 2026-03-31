@@ -27,7 +27,7 @@ public sealed class TrenirovkaForm : Form
 
     private void BuildUi()
     {
-        var top = new FlowLayoutPanel { Dock = DockStyle.Top, Height = 110, Padding = new Padding(10) };
+        var top = new FlowLayoutPanel { Dock = DockStyle.Top, AutoSize = true, AutoSizeMode = AutoSizeMode.GrowAndShrink, Padding = new Padding(10) };
         top.Controls.AddRange([
             new Label { Text = "Група" }, _txtGroup,
             new Label { Text = "Дата" }, _date,

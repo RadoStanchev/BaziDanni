@@ -27,8 +27,8 @@ public sealed class ChlenForm : Form
 
     private void BuildUi()
     {
-        var top = new GroupBox { Text = "Данни за член", Dock = DockStyle.Top, Height = 140 };
-        var panel = new FlowLayoutPanel { Dock = DockStyle.Fill, Padding = new Padding(10), AutoScroll = true };
+        var top = new GroupBox { Text = "Данни за член", Dock = DockStyle.Top, AutoSize = true };
+        var panel = new FlowLayoutPanel { Dock = DockStyle.Fill, Padding = new Padding(10), AutoSize = true, AutoSizeMode = AutoSizeMode.GrowAndShrink };
 
         panel.Controls.AddRange([
             CreateLabeled("Номер", _txtId),

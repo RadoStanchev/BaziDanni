@@ -36,8 +36,8 @@ public sealed class NivoForm : Form
             }
         };
 
-        var top = new Panel { Dock = DockStyle.Top, Height = 100, Padding = new Padding(12) };
-        var flow = new FlowLayoutPanel { Dock = DockStyle.Fill };
+        var top = new Panel { Dock = DockStyle.Top, AutoSize = true, Padding = new Padding(12) };
+        var flow = new FlowLayoutPanel { Dock = DockStyle.Fill, AutoSize = true, AutoSizeMode = AutoSizeMode.GrowAndShrink };
         flow.Controls.AddRange([new Label { Text = "Номер" }, _txtId, new Label { Text = "Ниво" }, _txtName, _btnColor, _txtColor]);
 
         var btnAdd = new Button { Text = "Добави", Width = 100 };
