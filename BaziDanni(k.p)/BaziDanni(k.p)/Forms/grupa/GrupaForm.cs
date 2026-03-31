@@ -49,8 +49,8 @@ public sealed class GrupaForm : Form
         var top = new FlowLayoutPanel
         {
             Dock = DockStyle.Top,
-            Height = 130,
-            AutoScroll = true,
+            AutoSize = true,
+            AutoSizeMode = AutoSizeMode.GrowAndShrink,
             Padding = new Padding(8)
         };
 

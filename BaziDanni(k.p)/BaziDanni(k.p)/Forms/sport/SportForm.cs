@@ -27,11 +27,9 @@ public sealed class SportForm : Form
 
     private void BuildUi()
     {
-        var split = new SplitContainer { Dock = DockStyle.Fill, Orientation = Orientation.Horizontal, SplitterDistance = 100 };
-        var top = split.Panel1;
-        var controls = new FlowLayoutPanel { Dock = DockStyle.Fill, Padding = new Padding(8) };
+        var top = new FlowLayoutPanel { Dock = DockStyle.Top, AutoSize = true, AutoSizeMode = AutoSizeMode.GrowAndShrink, Padding = new Padding(8) };
 
-        controls.Controls.AddRange([
+        top.Controls.AddRange([
             new Label { Text = "Номер" }, _txtId,
             new Label { Text = "Спорт" }, _txtName,
             new Label { Text = "Цвят" }, _cmbColor
@@ -48,11 +46,10 @@ public sealed class SportForm : Form
         reload.Click += (_, _) => LoadData();
         _grid.SelectionChanged += (_, _) => BindSelected();
 
-        controls.Controls.AddRange([add, edit, delete, reload]);
-        top.Controls.Add(controls);
-        split.Panel2.Controls.Add(_grid);
+        top.Controls.AddRange([add, edit, delete, reload]);
 
-        Controls.Add(split);
+        Controls.Add(_grid);
+        Controls.Add(top);
 
         UiStyler.MakeButtonsMoreVisible(this);
     }
