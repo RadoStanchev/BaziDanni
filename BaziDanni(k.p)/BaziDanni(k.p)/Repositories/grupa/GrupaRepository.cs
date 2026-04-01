@@ -6,39 +6,33 @@ namespace BaziDanni_k.p_.Repositories.grupa;
 
 public sealed class GrupaRepository(string connectionString) : IRepository
 {
-    private static readonly string[] Columns = ["N_grupa", "N_sport", "N_nivo", "N_trenior"];
-
     public DataTable GetAll() => RepositoryGuard.Query(connectionString,
         "SELECT N_grupa, N_sport, N_nivo, N_trenior FROM grupa ORDER BY N_grupa");
 
     public void Insert(Dictionary<string, object?> values)
     {
-        var sql = $"INSERT INTO grupa ({string.Join(", ", Columns)}) VALUES ({string.Join(", ", Columns.Select(column => $":{column}"))})";
-        RepositoryGuard.Execute(connectionString, sql, command => AddParameters(command, values), "Добавяне в GRUPA");
+        const string sql = "INSERT INTO grupa (N_grupa, N_sport, N_nivo, N_trenior) VALUES (:N_grupa, :N_sport, :N_nivo, :N_trenior)";
+        RepositoryGuard.Execute(connectionString, sql, "Добавяне в GRUPA", false,
+            new OracleParameter(":N_grupa", values["N_grupa"] ?? DBNull.Value),
+            new OracleParameter(":N_sport", values["N_sport"] ?? DBNull.Value),
+            new OracleParameter(":N_nivo", values["N_nivo"] ?? DBNull.Value),
+            new OracleParameter(":N_trenior", values["N_trenior"] ?? DBNull.Value));
     }
 
     public void Update(Dictionary<string, object?> values)
     {
         const string sql = "UPDATE grupa SET N_sport = :N_sport, N_nivo = :N_nivo, N_trenior = :N_trenior WHERE N_grupa = :N_grupa";
-        RepositoryGuard.Execute(connectionString, sql, command => AddParameters(command, values), "Редакция в GRUPA", requireAffectedRow: true);
+        RepositoryGuard.Execute(connectionString, sql, "Редакция в GRUPA", true,
+            new OracleParameter(":N_sport", values["N_sport"] ?? DBNull.Value),
+            new OracleParameter(":N_nivo", values["N_nivo"] ?? DBNull.Value),
+            new OracleParameter(":N_trenior", values["N_trenior"] ?? DBNull.Value),
+            new OracleParameter(":N_grupa", values["N_grupa"] ?? DBNull.Value));
     }
 
     public void Delete(object key)
     {
         const string sql = "DELETE FROM grupa WHERE N_grupa = :p_key";
-        RepositoryGuard.Execute(connectionString, sql, command => command.Parameters.Add(":p_key", key), "Изтриване от GRUPA", requireAffectedRow: true);
-    }
-
-    private static void AddParameters(OracleCommand command, IReadOnlyDictionary<string, object?> values)
-    {
-        foreach (var column in Columns)
-        {
-            if (!values.TryGetValue(column, out var value))
-            {
-                throw new ArgumentException($"Missing required value for column '{column}'.", nameof(values));
-            }
-
-            command.Parameters.Add($":{column}", value ?? DBNull.Value);
-        }
+        RepositoryGuard.Execute(connectionString, sql, "Изтриване от GRUPA", true,
+            new OracleParameter(":p_key", key));
     }
 }
