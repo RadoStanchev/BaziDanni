@@ -3,10 +3,21 @@ partial class ZapisaniAbonamentiForm
 {
     private System.ComponentModel.IContainer? components = null;
     protected override void Dispose(bool disposing){ if (disposing && components!=null) components.Dispose(); base.Dispose(disposing);}    
-    private void InitializeComponent(){ _grid=new DataGridView(); _strip=new StatusStrip(); _txtChlen=new TextBox(); _txtGroup=new TextBox(); _txtAbonament=new TextBox(); _date=new DateTimePicker(); _btnActions=new ToolStripDropDownButton(); ((System.ComponentModel.ISupportInitialize)_grid).BeginInit(); SuspendLayout();
-        _grid.Dock=DockStyle.Fill; _grid.ReadOnly=true; _grid.AutoSizeColumnsMode=DataGridViewAutoSizeColumnsMode.Fill; _grid.Location=new Point(0,26); _grid.SelectionChanged += Grid_SelectionChanged;
-        _strip.Dock=DockStyle.Top; _strip.SizingGrip=false; _strip.Items.Add(new ToolStripStatusLabel("Член")); _txtChlen.Width=100; _strip.Items.Add(new ToolStripControlHost(_txtChlen)); _strip.Items.Add(new ToolStripStatusLabel("Група")); _txtGroup.Width=100; _strip.Items.Add(new ToolStripControlHost(_txtGroup)); _strip.Items.Add(new ToolStripStatusLabel("Абонамент")); _txtAbonament.Width=100; _strip.Items.Add(new ToolStripControlHost(_txtAbonament)); _strip.Items.Add(new ToolStripStatusLabel("Дата")); _date.Width=130; _date.Format=DateTimePickerFormat.Short; _strip.Items.Add(new ToolStripControlHost(_date));
-        _btnActions.Text="Действия"; _btnActions.DropDownItems.Add("Добави", null, AddItem_Click); _btnActions.DropDownItems.Add("Редактирай", null, EditItem_Click); _btnActions.DropDownItems.Add("Изтрий", null, DeleteItem_Click); _strip.Items.Add(_btnActions);
-        ClientSize=new Size(980,560); AutoScaleDimensions=new SizeF(8F,20F); AutoScaleMode=AutoScaleMode.Font; Text="Управление: ZAPISANI_ABONAMENTI"; Name="ZapisaniAbonamentiForm"; Controls.Add(_grid); Controls.Add(_strip); ((System.ComponentModel.ISupportInitialize)_grid).EndInit(); ResumeLayout(false); PerformLayout(); }
-    private DataGridView _grid=null!; private StatusStrip _strip=null!; private TextBox _txtChlen=null!; private TextBox _txtGroup=null!; private TextBox _txtAbonament=null!; private DateTimePicker _date=null!; private ToolStripDropDownButton _btnActions=null!;
+    private void InitializeComponent(){ _grid=new DataGridView(); _txtChlen=new TextBox(); _txtGroup=new TextBox(); _txtAbonament=new TextBox(); _date=new DateTimePicker(); _btnAdd=new Button(); _btnEdit=new Button(); _btnDelete=new Button(); _lblChlen=new Label(); _lblGroup=new Label(); _lblAbonament=new Label(); _lblDate=new Label(); ((System.ComponentModel.ISupportInitialize)_grid).BeginInit(); SuspendLayout();
+        _lblChlen.AutoSize = true; _lblChlen.Location = new Point(12,15); _lblChlen.Text = "Член";
+        _txtChlen.Location = new Point(12,38); _txtChlen.Width=100;
+        _lblGroup.AutoSize = true; _lblGroup.Location = new Point(132,15); _lblGroup.Text = "Група";
+        _txtGroup.Location = new Point(132,38); _txtGroup.Width=100;
+        _lblAbonament.AutoSize = true; _lblAbonament.Location = new Point(252,15); _lblAbonament.Text = "Абонамент";
+        _txtAbonament.Location = new Point(252,38); _txtAbonament.Width=100;
+        _lblDate.AutoSize = true; _lblDate.Location = new Point(372,15); _lblDate.Text = "Дата";
+        _date.Location = new Point(372,38); _date.Width=130; _date.Format=DateTimePickerFormat.Short;
+        _btnAdd.Location = new Point(522,36); _btnAdd.Text = "Добави"; _btnAdd.Click += AddItem_Click;
+        _btnEdit.Location = new Point(608,36); _btnEdit.Text = "Редактирай"; _btnEdit.Click += EditItem_Click;
+        _btnDelete.Location = new Point(714,36); _btnDelete.Text = "Изтрий"; _btnDelete.Click += DeleteItem_Click;
+
+        _grid.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+        _grid.ReadOnly=true; _grid.AutoSizeColumnsMode=DataGridViewAutoSizeColumnsMode.Fill; _grid.Location=new Point(12,100); _grid.Size = new Size(956,448); _grid.SelectionChanged += Grid_SelectionChanged;
+        ClientSize=new Size(980,560); AutoScaleDimensions=new SizeF(8F,20F); AutoScaleMode=AutoScaleMode.Font; Text="Управление: ZAPISANI_ABONAMENTI"; Name="ZapisaniAbonamentiForm"; Controls.AddRange([_grid,_btnDelete,_btnEdit,_btnAdd,_date,_lblDate,_txtAbonament,_lblAbonament,_txtGroup,_lblGroup,_txtChlen,_lblChlen]); ((System.ComponentModel.ISupportInitialize)_grid).EndInit(); ResumeLayout(false); PerformLayout(); }
+    private DataGridView _grid=null!; private TextBox _txtChlen=null!; private TextBox _txtGroup=null!; private TextBox _txtAbonament=null!; private DateTimePicker _date=null!; private Button _btnAdd=null!; private Button _btnEdit=null!; private Button _btnDelete=null!; private Label _lblChlen=null!; private Label _lblGroup=null!; private Label _lblAbonament=null!; private Label _lblDate=null!;
 }
