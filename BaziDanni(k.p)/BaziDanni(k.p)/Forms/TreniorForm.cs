@@ -14,12 +14,32 @@ public sealed partial class TreniorForm : Form
 
         InitializeComponent();
 
-        _btnAdd.Click += (_, _) => { _repository.Insert(GetValues()); LoadData(); };
-        _btnEdit.Click += (_, _) => { _repository.Update(GetValues()); LoadData(); };
-        _btnDelete.Click += (_, _) => { _repository.Delete(_txtId.Text.Trim()); LoadData(); };
-        _grid.SelectionChanged += (_, _) => BindSelected();
+        _btnAdd.Click += BtnAdd_Click;
+        _btnEdit.Click += BtnEdit_Click;
+        _btnDelete.Click += BtnDelete_Click;
+        _grid.SelectionChanged += Grid_SelectionChanged;
         LoadData();
     }
+
+    private void BtnAdd_Click(object? sender, EventArgs e)
+    {
+        _repository.Insert(GetValues());
+        LoadData();
+    }
+
+    private void BtnEdit_Click(object? sender, EventArgs e)
+    {
+        _repository.Update(GetValues());
+        LoadData();
+    }
+
+    private void BtnDelete_Click(object? sender, EventArgs e)
+    {
+        _repository.Delete(_txtId.Text.Trim());
+        LoadData();
+    }
+
+    private void Grid_SelectionChanged(object? sender, EventArgs e) => BindSelected();
 
     private Dictionary<string, object?> GetValues() => new()
     {
