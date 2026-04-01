@@ -11,7 +11,6 @@ public partial class Form1 : Form
     public Form1()
     {
         InitializeComponent();
-        UiStyler.MakeButtonsMoreVisible(this);
     }
 
     private void BtnNivo_Click(object sender, EventArgs e)

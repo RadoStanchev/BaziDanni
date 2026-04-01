@@ -104,6 +104,12 @@ partial class ChlenForm
         _grid.RowHeadersWidth = 51;
         _grid.Size = new Size(1126, 498);
 
+        _btnAdd.Click += BtnAdd_Click;
+        _btnEdit.Click += BtnEdit_Click;
+        _btnDelete.Click += BtnDelete_Click;
+        _btnRefresh.Click += BtnRefresh_Click;
+        _grid.SelectionChanged += Grid_SelectionChanged;
+
         AutoScaleDimensions = new SizeF(8F, 20F);
         AutoScaleMode = AutoScaleMode.Font;
         ClientSize = new Size(1150, 620);

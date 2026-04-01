@@ -13,12 +13,6 @@ public sealed partial class ChlenForm : Form
         _repository = new ChlenRepository(cs);
 
         InitializeComponent();
-
-        _btnAdd.Click += BtnAdd_Click;
-        _btnEdit.Click += BtnEdit_Click;
-        _btnDelete.Click += BtnDelete_Click;
-        _btnRefresh.Click += BtnRefresh_Click;
-        _grid.SelectionChanged += Grid_SelectionChanged;
         LoadData();
     }
 

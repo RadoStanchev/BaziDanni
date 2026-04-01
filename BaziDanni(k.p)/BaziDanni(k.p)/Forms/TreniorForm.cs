@@ -13,11 +13,6 @@ public sealed partial class TreniorForm : Form
         _repository = new TreniorRepository(cs);
 
         InitializeComponent();
-
-        _btnAdd.Click += BtnAdd_Click;
-        _btnEdit.Click += BtnEdit_Click;
-        _btnDelete.Click += BtnDelete_Click;
-        _grid.SelectionChanged += Grid_SelectionChanged;
         LoadData();
     }
 
