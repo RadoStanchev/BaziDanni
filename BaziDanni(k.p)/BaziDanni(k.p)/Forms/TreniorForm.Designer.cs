@@ -1,4 +1,4 @@
-namespace BaziDanni_k.p_.Forms.trenior;
+namespace BaziDanni_k.p_.Forms;
 
 partial class TreniorForm
 {

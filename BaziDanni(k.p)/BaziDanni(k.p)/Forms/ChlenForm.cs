@@ -2,7 +2,7 @@ using System.Data;
 using BaziDanni_k.p_.Infrastructure;
 using BaziDanni_k.p_.Repositories.chlen;
 
-namespace BaziDanni_k.p_.Forms.chlen;
+namespace BaziDanni_k.p_.Forms;
 
 public sealed partial class ChlenForm : Form
 {

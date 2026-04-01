@@ -2,7 +2,7 @@ using System.Data;
 using BaziDanni_k.p_.Infrastructure;
 using BaziDanni_k.p_.Repositories.trenior;
 
-namespace BaziDanni_k.p_.Forms.trenior;
+namespace BaziDanni_k.p_.Forms;
 
 public sealed partial class TreniorForm : Form
 {

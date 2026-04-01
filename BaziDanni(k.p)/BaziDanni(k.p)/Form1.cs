@@ -1,12 +1,4 @@
-using BaziDanni_k.p_.Forms.abonament;
-using BaziDanni_k.p_.Forms.chlen;
-using BaziDanni_k.p_.Forms.den_sedmica;
-using BaziDanni_k.p_.Forms.grupa;
-using BaziDanni_k.p_.Forms.nivo;
-using BaziDanni_k.p_.Forms.sport;
-using BaziDanni_k.p_.Forms.trenior;
-using BaziDanni_k.p_.Forms.trenirovka;
-using BaziDanni_k.p_.Forms.zapisani_abonamenti;
+using BaziDanni_k.p_.Forms;
 using BaziDanni_k.p_.Infrastructure;
 
 namespace BaziDanni_k.p_;
