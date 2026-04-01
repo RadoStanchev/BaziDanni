@@ -22,7 +22,7 @@ partial class TreniorForm
         _lblId = new Label();
         _txtName = new TextBox();
         _lblName = new Label();
-        _txtSportId = new TextBox();
+        _cmbSport = new ComboBox();
         _lblSportId = new Label();
         _txtPhone = new MaskedTextBox();
         _lblPhone = new Label();
@@ -40,7 +40,7 @@ partial class TreniorForm
         _txtName.Location = new Point(132, 38); _txtName.Size = new Size(220, 27);
 
         _lblSportId.AutoSize = true; _lblSportId.Location = new Point(372, 15); _lblSportId.Text = "Номер спорт";
-        _txtSportId.Location = new Point(372, 38); _txtSportId.Size = new Size(120, 27);
+        _cmbSport.Location = new Point(372, 38); _cmbSport.Size = new Size(120, 28); _cmbSport.DropDownStyle = ComboBoxStyle.DropDownList;
 
         _lblPhone.AutoSize = true; _lblPhone.Location = new Point(512, 15); _lblPhone.Text = "Телефон";
         _txtPhone.Location = new Point(512, 38); _txtPhone.Mask = "0000-000-000"; _txtPhone.Size = new Size(130, 27);
@@ -73,7 +73,7 @@ partial class TreniorForm
         Controls.Add(_btnAdd);
         Controls.Add(_txtPhone);
         Controls.Add(_lblPhone);
-        Controls.Add(_txtSportId);
+        Controls.Add(_cmbSport);
         Controls.Add(_lblSportId);
         Controls.Add(_txtName);
         Controls.Add(_lblName);
@@ -92,7 +92,7 @@ partial class TreniorForm
     private Label _lblId;
     private TextBox _txtName;
     private Label _lblName;
-    private TextBox _txtSportId;
+    private ComboBox _cmbSport;
     private Label _lblSportId;
     private MaskedTextBox _txtPhone;
     private Label _lblPhone;
