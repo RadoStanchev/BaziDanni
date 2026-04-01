@@ -6,13 +6,17 @@ namespace BaziDanni_k.p_.Repositories.Common;
 
 internal static class RepositoryGuard
 {
-    public static DataTable Query(string connectionString, string sql, Action<OracleCommand>? addParameters = null)
+    public static DataTable Query(string connectionString, string sql, params OracleParameter[] parameters)
     {
         try
         {
             using var connection = new OracleConnection(connectionString);
             using var command = new OracleCommand(sql, connection);
-            addParameters?.Invoke(command);
+            foreach (var parameter in parameters)
+            {
+                command.Parameters.Add(parameter);
+            }
+
             using var adapter = new OracleDataAdapter(command);
 
             var table = new DataTable();
@@ -26,7 +30,12 @@ internal static class RepositoryGuard
         }
     }
 
-    public static void Execute(string connectionString, string sql, Action<OracleCommand> addParameters, string operationName, bool requireAffectedRow = false)
+    public static void Execute(
+        string connectionString,
+        string sql,
+        string operationName,
+        bool requireAffectedRow = false,
+        params OracleParameter[] parameters)
     {
         try
         {
@@ -34,7 +43,11 @@ internal static class RepositoryGuard
             connection.Open();
 
             using var command = new OracleCommand(sql, connection);
-            addParameters(command);
+            foreach (var parameter in parameters)
+            {
+                command.Parameters.Add(parameter);
+            }
+
             var affectedRows = command.ExecuteNonQuery();
 
             if (requireAffectedRow && affectedRows == 0)
